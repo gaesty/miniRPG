@@ -97,7 +97,11 @@ class GameManager:
             if not enemy_types:
                 print("No enemies in this area!")
                 return False
-            enemy_name = random.choice(enemy_types).lower()
+            # Convertir de CamelCase vers lowercase avec espaces
+            enemy_name = random.choice(enemy_types)
+            # Ajouter des espaces avant les majuscules et convertir en minuscules
+            import re
+            enemy_name = re.sub(r'(?<!^)(?=[A-Z])', ' ', enemy_name).lower()
 
         try:
             enemy = self.enemy_factory.create_enemy(enemy_name)
