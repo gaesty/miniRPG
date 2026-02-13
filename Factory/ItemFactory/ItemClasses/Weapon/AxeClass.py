@@ -1,4 +1,4 @@
-from ItemClasses.Weapon.WeaponBase import WeaponBase
+from .WeaponBase import WeaponBase
 
 
 class AxeClass(WeaponBase):
