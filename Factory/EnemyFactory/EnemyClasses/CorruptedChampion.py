@@ -1,4 +1,4 @@
-class DungeonKeeper:
+class CorruptedChampion:
     def createEnemy(self, name):
         return {
             "name": name,
