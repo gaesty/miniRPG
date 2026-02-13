@@ -1,7 +1,12 @@
-class MagicStickClass:
-    def createItem(self, name):
+from ItemClasses.Weapon.WeaponBase import WeaponBase
+
+
+class MagicStickClass(WeaponBase):
+    """Bâton magique - arme à forte intelligence."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "damage" : 15,
-            "intelligence" : 20
+            "name": "Magic Stick",
+            "damage": 15,
+            "intelligence": 20,
         }

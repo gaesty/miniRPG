@@ -1,7 +1,12 @@
-class SteelSwordClass:
-    def createItem(self, name):
+from ItemClasses.Weapon.WeaponBase import WeaponBase
+
+
+class SteelSwordClass(WeaponBase):
+    """Épée en acier - arme équilibrée entre dégâts et intelligence."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "damage" : 15,
-            "intelligence" : 5
+            "name": "Steel Sword",
+            "damage": 15,
+            "intelligence": 5,
         }

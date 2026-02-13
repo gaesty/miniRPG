@@ -1,11 +1,16 @@
-class AreaVillage:
-    def createArea(self, name):
+from AreaClasses.AreaBase import AreaBase
+
+
+class AreaVillage(AreaBase):
+    """Zone village - zone sûre avec quêtes et marchands."""
+
+    def get_data(self) -> dict:
         return {
-            "name": name,
-            "area_type": name,
-            "evenment_type": ["quest", "seller"],
+            "name": "village",
+            "area_type": "village",
+            "event_type": ["quest", "seller"],
             "area_safe": True,
             "enemy_type": None,
             "rooms": None,
-            "key": None,
+            "key": False,
         }

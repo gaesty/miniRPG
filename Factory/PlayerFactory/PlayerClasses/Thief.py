@@ -1,13 +1,18 @@
-class Thief:
-    def createNewPlayer(self, name):
+from PlayerBase import PlayerBase
+
+
+class Thief(PlayerBase):
+    """Classe représentant le voleur."""
+
+    def get_data(self) -> dict:
         return {
-            "name": name,
-            "description" : "Specialty: speed",
-            "pv" : 300,
-            "standard_attack" : "Knife",
-            "offensive_stat_1" : 15,
-            "offensive_stat_2" : 25,
-            "defensive_stat_1" : 50,
-            "special_skill_1" : "sneak attack",
-            "special_skill_2" : "Perfect dodge"
+            "name": "Thief",
+            "description": "Specialty: speed",
+            "pv": 300,
+            "standard_attack": "Knife",
+            "strength": 15,
+            "intelligence": 25,
+            "defense": 50,
+            "special_skill_1": "Sneak Attack",
+            "special_skill_2": "Perfect Dodge",
         }

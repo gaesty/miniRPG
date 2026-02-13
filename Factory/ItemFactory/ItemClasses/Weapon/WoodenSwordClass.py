@@ -1,7 +1,12 @@
-class WoodenSwordClass:
-    def createItem(self, name):
+from ItemClasses.Weapon.WeaponBase import WeaponBase
+
+
+class WoodenSwordClass(WeaponBase):
+    """Épée en bois - arme de départ basique."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "damage" : 5,
-            "intelligence" : 0
+            "name": "Wooden Sword",
+            "damage": 5,
+            "intelligence": 0,
         }

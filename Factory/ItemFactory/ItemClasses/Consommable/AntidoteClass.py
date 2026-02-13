@@ -1,8 +1,13 @@
-class AntidoteClass:
-    def createConsommable(self, name):
+from ConsumableBase import ConsumableBase
+
+
+class AntidoteClass(ConsumableBase):
+    """Antidote permettant de soigner le poison."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "pv_restore" : None,
-            "damage" : 30,
-            "status" : None
+            "name": "Antidote",
+            "pv_restore": None,
+            "damage": None,
+            "status": "cure_poison",
         }
