@@ -1,12 +1,23 @@
-from PlayerClasses import Warrior, Mage, Thief
+from PlayerClasses.Mage import Mage
+from PlayerClasses.Thief import Thief
+from PlayerClasses.Warrior import Warrior
+
 
 class PlayerFactory:
-    def createEnemy(self, name):
-        if name == "warrior":
-            return Warrior()
-        elif name == "mage":
-            return Mage()
-        elif name == "thief":
-            return Thief()
-        else:
-            pass
+    """Factory pour créer des personnages joueurs."""
+
+    _player_map = {
+        "warrior": Warrior,
+        "mage": Mage,
+        "thief": Thief,
+    }
+
+    def create_player(self, name: str) -> dict:
+        """Crée et retourne les données d'un personnage joueur."""
+        player_class = self._player_map.get(name)
+        if player_class is None:
+            raise ValueError(
+                f"Classe de personnage inconnue : '{name}'. "
+                f"Disponibles : {list(self._player_map.keys())}"
+            )
+        return player_class().get_data()
