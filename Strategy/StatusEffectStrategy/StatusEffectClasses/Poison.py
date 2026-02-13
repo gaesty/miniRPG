@@ -1,4 +1,4 @@
-from Strategy.StatusEffectStrategy.StatusEffectStrategy import StatusEffectStrategy
+from ..StatusEffectStrategy import StatusEffectStrategy
 
 
 class Poison(StatusEffectStrategy):
