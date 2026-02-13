@@ -13,6 +13,8 @@ class Warrior(PlayerBase):
             "strength": 40,
             "intelligence": 20,
             "defense": 50,
+            "offensive_stat": 40,
+            "defensive_stat": 50,
             "special_skill_1": "Powerful blow",
             "special_skill_2": "Heroic charge",
         }

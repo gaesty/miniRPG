@@ -13,6 +13,8 @@ class Thief(PlayerBase):
             "strength": 15,
             "intelligence": 25,
             "defense": 50,
+            "offensive_stat": 15,
+            "defensive_stat": 50,
             "special_skill_1": "Sneak Attack",
             "special_skill_2": "Perfect Dodge",
         }

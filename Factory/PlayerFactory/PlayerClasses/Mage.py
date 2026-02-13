@@ -13,6 +13,8 @@ class Mage(PlayerBase):
             "strength": 25,
             "intelligence": 30,
             "defense": 50,
+            "offensive_stat": 25,
+            "defensive_stat": 50,
             "special_skill_1": "Fireball",
             "special_skill_2": "Arcane shield",
         }
