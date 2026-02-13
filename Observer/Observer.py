@@ -1,24 +1,26 @@
 class FinalBoss:
     def __init__(self):
-        pass
-        
-    is_awake = False
+        self.is_awake = False
 
-    def update(self):
-        print(f"Final Boss is ready !\n")
+    def update(self, enemies_defeated):
+        self.is_awake = True
+        print(f"Final Boss is ready! ({enemies_defeated} enemies defeated)\n")
+
 
 class DungeonEvent:
     def __init__(self):
         self.observers = []
+        self.threshold = 1
 
     def register(self, observer):
         self.observers.append(observer)
 
-    def enemy_defeated(self, dungeon):
-        for observer in self.observers:
-            if observer == 1:
-                observer.update(dungeon)
-                boss = FinalBoss()
-                boss.is_awake = True
-            else:
-                return "Final boss is not ready to fight"
+    def unregister(self, observer):
+        self.observers.remove(observer)
+
+    def enemy_defeated(self, enemies_defeated):
+        if enemies_defeated >= self.threshold:
+            for observer in self.observers:
+                observer.update(enemies_defeated)
+        else:
+            print("Final boss is not ready to fight")
