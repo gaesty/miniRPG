@@ -2,6 +2,9 @@ from AreaClasses.AreaDungeon import AreaDungeon
 from AreaClasses.AreaForest import AreaForest
 from AreaClasses.AreaVillage import AreaVillage
 
+# from AreaClasses import AreaDungeon, AreaForest, AreaVillage
+
+
 class AreaFactory:
     def createArea(self, name):
         if name == "forest":
