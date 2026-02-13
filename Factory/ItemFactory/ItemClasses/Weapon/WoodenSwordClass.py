@@ -1,4 +1,4 @@
-from .WeaponBase import WeaponBase
+from ItemClasses.Weapon.WeaponBase import WeaponBase
 
 
 class WoodenSwordClass(WeaponBase):
