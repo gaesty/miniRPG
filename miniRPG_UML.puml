@@ -1,0 +1,566 @@
+@startuml miniRPG - Class Diagram
+
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam linetype ortho
+skinparam groupInheritance 2
+
+title miniRPG — Architecture UML Complète
+
+' ============================================================
+'  FACTORY PATTERN — Area
+' ============================================================
+package "Factory.AreaFactory" as AreaPkg <<Rectangle>> {
+
+    abstract class AreaBase <<ABC>> {
+        + {abstract} get_data() : dict
+    }
+
+    class AreaForest {
+        + get_data() : dict
+    }
+
+    class AreaVillage {
+        + get_data() : dict
+    }
+
+    class AreaDungeon {
+        + get_data() : dict
+    }
+
+    class AreaFactory {
+        - {static} _area_map : dict
+        + create_area(name : str) : dict
+    }
+
+    AreaBase <|-- AreaForest
+    AreaBase <|-- AreaVillage
+    AreaBase <|-- AreaDungeon
+
+    AreaFactory ..> AreaForest : <<creates>>
+    AreaFactory ..> AreaVillage : <<creates>>
+    AreaFactory ..> AreaDungeon : <<creates>>
+}
+
+' ============================================================
+'  FACTORY PATTERN — Player
+' ============================================================
+package "Factory.PlayerFactory" as PlayerPkg <<Rectangle>> {
+
+    abstract class PlayerBase <<ABC>> {
+        + {abstract} get_data() : dict
+    }
+
+    class Warrior {
+        + get_data() : dict
+    }
+
+    class Mage {
+        + get_data() : dict
+    }
+
+    class Thief {
+        + get_data() : dict
+    }
+
+    class PlayerFactory {
+        - {static} _player_map : dict
+        + create_player(name : str) : dict
+    }
+
+    PlayerBase <|-- Warrior
+    PlayerBase <|-- Mage
+    PlayerBase <|-- Thief
+
+    PlayerFactory ..> Warrior : <<creates>>
+    PlayerFactory ..> Mage : <<creates>>
+    PlayerFactory ..> Thief : <<creates>>
+}
+
+' ============================================================
+'  FACTORY PATTERN — Enemy
+' ============================================================
+package "Factory.EnemyFactory" as EnemyPkg <<Rectangle>> {
+
+    abstract class EnemyBase <<ABC>> {
+        + {abstract} get_data() : dict
+    }
+
+    class SavageWolf {
+        + get_data() : dict
+    }
+
+    class Bandit {
+        + get_data() : dict
+    }
+
+    class Skeleton {
+        + get_data() : dict
+    }
+
+    class CorruptedChampion {
+        + get_data() : dict
+    }
+
+    class DungeonKeeper {
+        + get_data() : dict
+    }
+
+    class EnemyFactory {
+        - {static} _enemy_map : dict
+        + create_enemy(name : str) : dict
+    }
+
+    EnemyBase <|-- SavageWolf
+    EnemyBase <|-- Bandit
+    EnemyBase <|-- Skeleton
+    EnemyBase <|-- CorruptedChampion
+    EnemyBase <|-- DungeonKeeper
+
+    EnemyFactory ..> SavageWolf : <<creates>>
+    EnemyFactory ..> Bandit : <<creates>>
+    EnemyFactory ..> Skeleton : <<creates>>
+    EnemyFactory ..> CorruptedChampion : <<creates>>
+    EnemyFactory ..> DungeonKeeper : <<creates>>
+}
+
+' ============================================================
+'  FACTORY PATTERN — Item > Weapon
+' ============================================================
+package "Factory.ItemFactory" as ItemPkg <<Rectangle>> {
+
+    package "Weapon" as WeaponPkg {
+
+        abstract class WeaponBase <<ABC>> {
+            + {abstract} get_data() : dict
+        }
+
+        class WoodenSwordClass {
+            + get_data() : dict
+        }
+
+        class SteelSwordClass {
+            + get_data() : dict
+        }
+
+        class MagicStickClass {
+            + get_data() : dict
+        }
+
+        class KnifeClass {
+            + get_data() : dict
+        }
+
+        class AxeClass {
+            + get_data() : dict
+        }
+
+        class BowClass {
+            + get_data() : dict
+        }
+
+        class WeaponFactory {
+            - {static} _weapon_map : dict
+            + create_weapon(name : str) : dict
+        }
+
+        WeaponBase <|-- WoodenSwordClass
+        WeaponBase <|-- SteelSwordClass
+        WeaponBase <|-- MagicStickClass
+        WeaponBase <|-- KnifeClass
+        WeaponBase <|-- AxeClass
+        WeaponBase <|-- BowClass
+
+        WeaponFactory ..> WoodenSwordClass : <<creates>>
+        WeaponFactory ..> SteelSwordClass : <<creates>>
+        WeaponFactory ..> MagicStickClass : <<creates>>
+        WeaponFactory ..> KnifeClass : <<creates>>
+        WeaponFactory ..> AxeClass : <<creates>>
+        WeaponFactory ..> BowClass : <<creates>>
+    }
+
+    ' --------------------------------------------------------
+    '  Item > Armor
+    ' --------------------------------------------------------
+    package "Armor" as ArmorPkg {
+
+        abstract class ArmorBase <<ABC>> {
+            + {abstract} get_data() : dict
+        }
+
+        class CapeClass {
+            + get_data() : dict
+        }
+
+        class LeatherArmorClass {
+            + get_data() : dict
+        }
+
+        class MysticDress {
+            + get_data() : dict
+        }
+
+        class SteelArmorClass {
+            + get_data() : dict
+        }
+
+        class ArmorFactory {
+            - {static} _armor_map : dict
+            + create_armor(name : str) : dict
+        }
+
+        ArmorBase <|-- CapeClass
+        ArmorBase <|-- LeatherArmorClass
+        ArmorBase <|-- MysticDress
+        ArmorBase <|-- SteelArmorClass
+
+        ArmorFactory ..> CapeClass : <<creates>>
+        ArmorFactory ..> LeatherArmorClass : <<creates>>
+        ArmorFactory ..> MysticDress : <<creates>>
+        ArmorFactory ..> SteelArmorClass : <<creates>>
+    }
+
+    ' --------------------------------------------------------
+    '  Item > Consommable
+    ' --------------------------------------------------------
+    package "Consommable" as ConsoPkg {
+
+        abstract class ConsumableBase <<ABC>> {
+            + {abstract} get_data() : dict
+        }
+
+        class HealthPotion {
+            + get_data() : dict
+        }
+
+        class AntidoteClass {
+            + get_data() : dict
+        }
+
+        class BombClass {
+            + get_data() : dict
+        }
+
+        class ConsumableFactory {
+            - {static} _consumable_map : dict
+            + create_consumable(name : str) : dict
+        }
+
+        ConsumableBase <|-- HealthPotion
+        ConsumableBase <|-- AntidoteClass
+        ConsumableBase <|-- BombClass
+
+        ConsumableFactory ..> HealthPotion : <<creates>>
+        ConsumableFactory ..> AntidoteClass : <<creates>>
+        ConsumableFactory ..> BombClass : <<creates>>
+    }
+
+    ' --------------------------------------------------------
+    '  Item > Quest
+    ' --------------------------------------------------------
+    package "Quest" as QuestItemPkg {
+
+        abstract class QuestItemBase <<ABC>> {
+            + {abstract} get_data() : dict
+        }
+
+        class KeyClass {
+            + get_data() : dict
+        }
+
+        class QuestFactory {
+            - {static} _quest_item_map : dict
+            + create_quest_item(name : str) : dict
+        }
+
+        QuestItemBase <|-- KeyClass
+
+        QuestFactory ..> KeyClass : <<creates>>
+    }
+
+    ' --------------------------------------------------------
+    '  ItemFactory (central)
+    ' --------------------------------------------------------
+    class ItemFactory {
+        - _weapon_factory : WeaponFactory
+        - _armor_factory : ArmorFactory
+        - _consumable_factory : ConsumableFactory
+        - _quest_factory : QuestFactory
+        + __init__()
+        + create_item(category : str, name : str) : dict
+    }
+
+    ItemFactory o-- WeaponFactory
+    ItemFactory o-- ArmorFactory
+    ItemFactory o-- ConsumableFactory
+    ItemFactory o-- QuestFactory
+}
+
+' ============================================================
+'  FACTORY — LootFactory
+' ============================================================
+package "Factory" as LootPkg <<Rectangle>> {
+
+    class LootFactory {
+        - {static} _loot_table : dict
+        - {static} _drop_chances : dict
+        + generate_loot(area_name : str) : list[dict]
+        + generate_boss_loot(boss_name : str) : list[dict]
+    }
+}
+
+' ============================================================
+'  STRATEGY PATTERN — Battle
+' ============================================================
+package "Strategy.BattleStrategy" as BattlePkg <<Rectangle>> {
+
+    class BattleStrategy {
+        + execute_attack(attacker, defender)
+        + get_strategy_name()
+    }
+
+    class BattleContext {
+        - strategy : BattleStrategy
+        + __init__(strategy : BattleStrategy)
+        + set_strategy(strategy : BattleStrategy) : void
+        + execute_turn(attacker, defender)
+    }
+
+    class AggressiveStrategy {
+        + execute_attack(attacker, defender)
+        + get_strategy_name() : str
+    }
+
+    class DefensiveStrategy {
+        + execute_attack(attacker, defender)
+        + get_strategy_name() : str
+    }
+
+    class BalancedStrategy {
+        + execute_attack(attacker, defender)
+        + get_strategy_name() : str
+    }
+
+    class SpecialSkillStrategy {
+        + execute_attack(attacker, defender)
+        + get_strategy_name() : str
+    }
+
+    BattleStrategy <|-- AggressiveStrategy
+    BattleStrategy <|-- DefensiveStrategy
+    BattleStrategy <|-- BalancedStrategy
+    BattleStrategy <|-- SpecialSkillStrategy
+
+    BattleContext o-- BattleStrategy
+}
+
+' ============================================================
+'  STRATEGY PATTERN — Inventory
+' ============================================================
+package "Strategy.InventoryStrategy" as InvPkg <<Rectangle>> {
+
+    class InventoryStrategy {
+        + execute_action(inventory, item)
+        + get_strategy_name()
+    }
+
+    class InventoryContext {
+        - strategy : InventoryStrategy
+        + __init__(strategy : InventoryStrategy)
+        + set_strategy(strategy : InventoryStrategy) : void
+        + execute_action(inventory, item)
+    }
+
+    class AddItemStrategy {
+        + execute_action(inventory, item) : bool
+        + get_strategy_name() : str
+    }
+
+    class RemoveItemStrategy {
+        + execute_action(inventory, item) : bool
+        + get_strategy_name() : str
+    }
+
+    class UseItemStrategy {
+        + execute_action(inventory, item)
+        + get_strategy_name() : str
+    }
+
+    class EquipItemStrategy {
+        + execute_action(inventory, item) : bool
+        + get_strategy_name() : str
+    }
+
+    InventoryStrategy <|-- AddItemStrategy
+    InventoryStrategy <|-- RemoveItemStrategy
+    InventoryStrategy <|-- UseItemStrategy
+    InventoryStrategy <|-- EquipItemStrategy
+
+    InventoryContext o-- InventoryStrategy
+}
+
+' ============================================================
+'  STRATEGY PATTERN — StatusEffect
+' ============================================================
+package "Strategy.StatusEffectStrategy" as StatusPkg <<Rectangle>> {
+
+    abstract class StatusEffectStrategy <<ABC>> {
+        + {abstract} addStatusEffect() : void
+        + {abstract} delay() : void
+        + is_expired() : bool
+        + __str__() : str
+    }
+
+    class StatusEffectContext {
+        - _strategy : StatusEffectStrategy
+        + __init__()
+        + set_status_effect_context(battle_strategy : StatusEffectStrategy) : void
+        + make_status_effect() : str
+    }
+
+    class Poison {
+        - target : dict
+        - damage : int
+        - duration : int
+        - active : bool
+        + __init__(target, damage, duration)
+        + attack() : void
+        + delay() : void
+        + addStatusEffect() : void
+    }
+
+    class Shield {
+        - target : dict
+        - defense_boost : int
+        - duration : int
+        - applied : bool
+        + __init__(target, defense_boost, duration)
+        + defense() : void
+        + delay() : void
+        + addStatusEffect() : void
+    }
+
+    class Dizziness {
+        - target : dict
+        - duration : int
+        - active : bool
+        + __init__(target, duration)
+        + passTurn() : void
+        + delay() : void
+        + addStatusEffect() : void
+    }
+
+    StatusEffectStrategy <|-- Poison
+    StatusEffectStrategy <|-- Shield
+    StatusEffectStrategy <|-- Dizziness
+
+    StatusEffectContext o-- StatusEffectStrategy
+}
+
+' ============================================================
+'  STATE PATTERN — Quest
+' ============================================================
+package "State" as StatePkg <<Rectangle>> {
+
+    class QuestState {
+        + start(quest) : void
+        + complete(quest) : void
+        + fail(quest) : void
+        + get_status() : str
+    }
+
+    class NotStarted {
+        + start(quest) : void
+        + complete(quest) : void
+        + fail(quest) : void
+        + get_status() : str
+    }
+
+    class InProgress {
+        + start(quest) : void
+        + complete(quest) : void
+        + fail(quest) : void
+        + get_status() : str
+    }
+
+    class Completed {
+        + start(quest) : void
+        + complete(quest) : void
+        + fail(quest) : void
+        + get_status() : str
+    }
+
+    class Failed {
+        + start(quest) : void
+        + complete(quest) : void
+        + fail(quest) : void
+        + get_status() : str
+    }
+
+    class Quest {
+        - name : str
+        - description : str
+        - reward
+        - state : QuestState
+        + __init__(name, description, reward)
+        + start() : void
+        + complete() : void
+        + fail() : void
+        + get_status() : str
+        + get_info() : dict
+    }
+
+    QuestState <|-- NotStarted
+    QuestState <|-- InProgress
+    QuestState <|-- Completed
+    QuestState <|-- Failed
+
+    Quest o-- QuestState
+}
+
+' ============================================================
+'  OBSERVER PATTERN
+' ============================================================
+package "Observer" as ObsPkg <<Rectangle>> {
+
+    class FinalBoss {
+        - is_awake : bool
+        + __init__()
+        + update() : void
+    }
+
+    class DungeonEvent {
+        - observers : list
+        + __init__()
+        + register(observer) : void
+        + enemy_defeated(dungeon) : void
+    }
+
+    DungeonEvent "1" --> "*" FinalBoss : notifies >
+}
+
+' ============================================================
+'  ADAPTER PATTERN
+' ============================================================
+package "Adapter" as AdapterPkg <<Rectangle>> {
+
+    class SaveLoadAdapter {
+        - save_directory : str
+        + __init__(save_directory : str)
+        + save_game(game_state : dict, save_name : str) : str
+        + load_game(save_name : str) : dict
+        + list_saves() : list
+        + delete_save(save_name : str) : bool
+        + create_game_state(player, inventory, quests, current_area, game_progress) : dict
+        + get_save_info(save_name : str) : dict
+    }
+}
+
+' ============================================================
+'  INTER-PACKAGE RELATIONSHIPS
+' ============================================================
+LootFactory ..> ItemFactory : uses >
+SaveLoadAdapter ..> Quest : serializes >
+SaveLoadAdapter ..> PlayerFactory : serializes >
+
+@enduml
