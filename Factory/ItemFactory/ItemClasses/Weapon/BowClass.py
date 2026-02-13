@@ -1,7 +1,12 @@
-class BowClass:
-    def createItem(self, name):
+from WeaponBase import WeaponBase
+
+
+class BowClass(WeaponBase):
+    """Arme à distance avec bonus d'intelligence."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "damage" : 10,
-            "intelligence" : 20
+            "name": "Bow",
+            "damage": 10,
+            "intelligence": 20,
         }

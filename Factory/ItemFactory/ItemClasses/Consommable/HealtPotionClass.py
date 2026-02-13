@@ -1,8 +1,13 @@
-class HealtPotionClass:
-    def createConsommable(self, name):
+from ConsumableBase import ConsumableBase
+
+
+class HealthPotion(ConsumableBase):
+    """Potion de soin restaurant des points de vie."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "pv_restore" : 30,
-            "damage" : None,
-            "status" : None
+            "name": "Health Potion",
+            "pv_restore": 30,
+            "damage": None,
+            "status": None,
         }

@@ -1,7 +1,12 @@
-class MisticDressClass:
-    def createArmor(self, name):
+from ArmorBase import ArmorBase
+
+
+class MysticDress(ArmorBase):
+    """Robe mystique offrant une haute intelligence."""
+
+    def get_data(self) -> dict:
         return {
-            "name" : name,
-            "protection" : 10,
-            "intelligence" : 20
+            "name": "Mystic Dress",
+            "protection": 10,
+            "intelligence": 20,
         }
