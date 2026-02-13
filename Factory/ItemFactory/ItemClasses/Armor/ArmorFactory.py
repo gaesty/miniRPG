@@ -1,7 +1,7 @@
-from CapeClass import CapeClass
-from LeatherArmorClass import LeatherArmorClass
-from MisticDressClass import MysticDress
-from SteelArmorClass import SteelArmorClass
+from .CapeClass import CapeClass
+from .LeatherArmorClass import LeatherArmorClass
+from .MisticDressClass import MysticDress
+from .SteelArmorClass import SteelArmorClass
 
 
 class ArmorFactory:

@@ -1,7 +1,7 @@
-from ItemClasses.Armor.ArmorFactory import ArmorFactory
-from ItemClasses.Consommable.ConsumableFactory import ConsumableFactory
-from ItemClasses.Quest.QuestFactory import QuestFactory
-from ItemClasses.Weapon.WeaponFactory import WeaponFactory
+from .ItemClasses.Armor.ArmorFactory import ArmorFactory
+from .ItemClasses.Consommable.ConsumableFactory import ConsumableFactory
+from .ItemClasses.Quest.QuestFactory import QuestFactory
+from .ItemClasses.Weapon.WeaponFactory import WeaponFactory
 
 
 class ItemFactory:

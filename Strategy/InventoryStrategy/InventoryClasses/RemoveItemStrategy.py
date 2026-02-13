@@ -1,4 +1,4 @@
-from InventoryStrategy.InventoryStrategy import InventoryStrategy
+from ..InventoryStrategy import InventoryStrategy
 
 class RemoveItemStrategy(InventoryStrategy):
     def execute_action(self, inventory, item):

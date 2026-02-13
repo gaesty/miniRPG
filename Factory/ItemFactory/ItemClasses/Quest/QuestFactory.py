@@ -1,4 +1,4 @@
-from KeyClass import KeyClass
+from .KeyClass import KeyClass
 
 
 class QuestFactory:

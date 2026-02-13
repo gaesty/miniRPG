@@ -1,6 +1,6 @@
-from AreaClasses.AreaDungeon import AreaDungeon
-from AreaClasses.AreaForest import AreaForest
-from AreaClasses.AreaVillage import AreaVillage
+from .AreaClasses.AreaDungeon import AreaDungeon
+from .AreaClasses.AreaForest import AreaForest
+from .AreaClasses.AreaVillage import AreaVillage
 
 
 class AreaFactory:

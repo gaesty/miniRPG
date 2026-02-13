@@ -1,4 +1,4 @@
-from WeaponBase import WeaponBase
+from .WeaponBase import WeaponBase
 
 
 class BowClass(WeaponBase):

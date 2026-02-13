@@ -1,4 +1,4 @@
-from EnemyClasses.EnemyBase import EnemyBase
+from .EnemyBase import EnemyBase
 
 
 class CorruptedChampion(EnemyBase):

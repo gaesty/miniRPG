@@ -1,4 +1,4 @@
-from Quest.QuestItemBase import QuestItemBase
+from .QuestItemBase import QuestItemBase
 
 
 class KeyClass(QuestItemBase):

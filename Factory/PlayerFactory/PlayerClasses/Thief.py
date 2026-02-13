@@ -1,4 +1,4 @@
-from PlayerBase import PlayerBase
+from .PlayerBase import PlayerBase
 
 
 class Thief(PlayerBase):

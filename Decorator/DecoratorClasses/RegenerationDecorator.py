@@ -1,4 +1,4 @@
-from Decorator.CombatDecorator import CombatDecorator
+from ..CombatDecorator import CombatDecorator
 
 
 class RegenerationDecorator(CombatDecorator):

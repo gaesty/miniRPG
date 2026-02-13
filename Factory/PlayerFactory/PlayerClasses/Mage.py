@@ -1,4 +1,4 @@
-from PlayerClasses.PlayerBase import PlayerBase
+from .PlayerBase import PlayerBase
 
 
 class Mage(PlayerBase):

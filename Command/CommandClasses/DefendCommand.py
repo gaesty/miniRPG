@@ -1,4 +1,4 @@
-from Command.Command import Command
+from ..Command import Command
 
 
 class DefendCommand(Command):

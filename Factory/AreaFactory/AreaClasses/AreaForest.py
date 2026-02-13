@@ -1,4 +1,4 @@
-from AreaClasses.AreaBase import AreaBase
+from .AreaBase import AreaBase
 
 
 class AreaForest(AreaBase):

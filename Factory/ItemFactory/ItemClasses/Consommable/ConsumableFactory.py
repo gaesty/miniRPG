@@ -1,6 +1,6 @@
-from AntidoteClass import AntidoteClass
-from BombClass import BombClass
-from HealtPotionClass import HealthPotion
+from .AntidoteClass import AntidoteClass
+from .BombClass import BombClass
+from .HealtPotionClass import HealthPotion
 
 
 class ConsumableFactory:

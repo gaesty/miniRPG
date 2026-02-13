@@ -1,4 +1,4 @@
-from ConsumableBase import ConsumableBase
+from .ConsumableBase import ConsumableBase
 
 
 class BombClass(ConsumableBase):

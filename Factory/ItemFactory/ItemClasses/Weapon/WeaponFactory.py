@@ -1,10 +1,10 @@
-from AxeClass import AxeClass
-from BowClass import BowClass
-from KnifeClass import KnifeClass
-from MagicStickClass import MagicStickClass
-from SteelSwordClass import SteelSwordClass
-from WeaponBase import WeaponBase
-from WoodenSwordClass import WoodenSwordClass
+from .AxeClass import AxeClass
+from .BowClass import BowClass
+from .KnifeClass import KnifeClass
+from .MagicStickClass import MagicStickClass
+from .SteelSwordClass import SteelSwordClass
+from .WeaponBase import WeaponBase
+from .WoodenSwordClass import WoodenSwordClass
 
 
 class WeaponFactory:

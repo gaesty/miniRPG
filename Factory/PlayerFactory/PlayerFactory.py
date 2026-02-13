@@ -1,6 +1,6 @@
-from PlayerClasses.Mage import Mage
-from PlayerClasses.Thief import Thief
-from PlayerClasses.Warrior import Warrior
+from .PlayerClasses.Mage import Mage
+from .PlayerClasses.Thief import Thief
+from .PlayerClasses.Warrior import Warrior
 
 
 class PlayerFactory:

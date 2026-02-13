@@ -1,8 +1,8 @@
-from EnemyClasses.Bandit import Bandit
-from EnemyClasses.CorruptedChampion import CorruptedChampion
-from EnemyClasses.DungeonKeeper import DungeonKeeper
-from EnemyClasses.SavageWolf import SavageWolf
-from EnemyClasses.Skeleton import Skeleton
+from .EnemyClasses.Bandit import Bandit
+from .EnemyClasses.CorruptedChampion import CorruptedChampion
+from .EnemyClasses.DungeonKeeper import DungeonKeeper
+from .EnemyClasses.SavageWolf import SavageWolf
+from .EnemyClasses.Skeleton import Skeleton
 
 
 class EnemyFactory:

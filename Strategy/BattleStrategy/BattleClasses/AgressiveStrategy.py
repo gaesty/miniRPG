@@ -1,4 +1,4 @@
-from BattleStrategy.BattleStrategy import BattleStrategy
+from ..BattleStrategy import BattleStrategy
 
 class AggressiveStrategy(BattleStrategy):
     def execute_attack(self, attacker, defender):

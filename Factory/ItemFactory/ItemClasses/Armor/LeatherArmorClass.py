@@ -1,4 +1,4 @@
-from ArmorBase import ArmorBase
+from .ArmorBase import ArmorBase
 
 
 class LeatherArmorClass(ArmorBase):
